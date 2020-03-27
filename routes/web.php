@@ -16,3 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/cliente/cadastro', 'ClienteController@telaCadastro')->name('cliente_add');
+
+Route::get('/cliente/listar', 'ClienteController@listar')->name('listar');
+
+Route::get('/cliente/adicionar', 'ClienteController@adicionar')->name('cliente_add');
