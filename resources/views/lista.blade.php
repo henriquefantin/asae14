@@ -1,13 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Lista de Clientes</title>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-</head>
-<body>
+@extends('template')
+
+@section('conteudo')
 	<div class="jumbotron bg-dark text-white">
-		<h1 class="display-4">Lista de Clientes</h1>	
+		<h1 class="display-4">Lista de Clientes</h1>
 	</div>
 	<table class="table">
 		<thead class="thead-dark">
@@ -18,6 +13,8 @@
 				<th>CEP</th>
 				<th>Cidade</th>
 				<th>Estado</th>
+				<th>Operações</th>
+				<th>Vendas</th>
 			</tr>
 		</thead>
 		<tbody class="thead-light">
@@ -29,13 +26,27 @@
 				<td>{{ $u->cep}}</td>
 				<td>{{ $u->cidade}}</td>
 				<td>{{ $u->estado}}</td>
+				<td>
+				<a class="btn btn-warning" href="{{ route('cliente_update', [ 'id' => $u->id ]) }}">Alterar</a>
+				<a class="btn btn-danger" href="#" onclick="exclui({{$u->id}})">Excluir</a>
+				</td>
+				<td>
+				<a class="btn btn-success" href="{{ route('venda_cadastro', [ 'id' => $u->id ]) }}">Vender</a>				
+				<a class="btn btn-success" href="{{ route('listar_vendas', [ 'id' => $u->id ]) }}">Listar Vendas</a>
+				</td>
 			</tr>
 			@endForeach
 		</tbody>
 	</table>
 
-	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-</body>
-</html>
+
+<a class="btn btn-primary" href="{{ route('cliente_cadastro') }}">Cadastrar novo</a>
+
+<script>
+	function exclui(id){
+		if (confirm("Deseja excluir o cliente de id: " + id + "?")){
+			location.href = "/cliente/excluir/" + id;
+		}
+	}
+</script>
+@endsection
