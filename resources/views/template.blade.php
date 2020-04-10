@@ -8,6 +8,7 @@
 <body>
   <div class="row">
       <nav class="navbar-expand-lg navbar navbar-dark bg-dark w-100">
+        <a class="navbar-brand" href="#">Olá, {{ session("nome")}}</a>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item active">
@@ -15,6 +16,9 @@
             </li>
             <li class="nav-item active">
               <a class="nav-link" href="{{ route('listar') }}">Clientes <span class="sr-only">(current)</span></a>
+            </li>
+             <li class="nav-item active">
+              <a class="nav-link" href="{{ route('logout') }}">Logout</a>
             </li>
           </ul>
         </div>
