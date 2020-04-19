@@ -25,7 +25,7 @@
               <a class="nav-link" href="{{ route('listar_vendas_geral') }}">Vendas <span class="sr-only">(current)</span></a>
             </li>
              <li class="nav-item active">
-              <a class="nav-link" href="#">Produtos <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="{{ route('produto_cadastro')}}">Produtos <span class="sr-only">(current)</span></a>
             </li>
              <li class="nav-item active">
               <a class="nav-link" href="{{ route('logout') }}">Logout</a>

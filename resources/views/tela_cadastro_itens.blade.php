@@ -7,22 +7,25 @@
 
 	<form method="post" action="{{ route('vendas_item_add', ['id' => $venda->id])}}">
 		@csrf
-	 <div class="form-row">
-		<select name="id_produto" class="form-control">
-			@foreach ($produtos as $p)
-			<option value="{{ $p->id }}">{{ $p->nome }}</option>
-			@endforeach
-		</select>
-    </div>
-    <div class="form-row pt-3">
-    	<input type="number" name="quantidade" class="form-control" min="0" step="0.01">
+  	<div class="form-row">
+      <div class="form-group pr-3 pl-3 col-md-12">
+        <label for="nome1">Produto</label>
+    		<select name="id_produto" class="form-control">
+    			@foreach ($produtos as $p)
+    			<option value="{{ $p->id }}">{{ $p->nome }}</option>
+    			@endforeach
+    		</select>
+      </div>
+    <div class="form-group pr-3 pl-3  col-md-12">
+      <label for="nome1">Quantidade</label>
+      <input type="number" name="quantidade" class="form-control" min="0" step="0.01">
     </div>    
-    <div class="form-group pt-3 col-md-12">
-      <button type="submit" class="btn btn-success">Cadastrar</button>
-    </div>
+      <div class="form-group pt-3 col-md-12">
+        <button type="submit" class="btn btn-success ml-3">Cadastrar</button>
+      </div>
   </form>
 
-  <div class="jumbotron bg-dark text-white">
+  <div class="jumbotron bg-dark text-white w-100">
     <h1 class="display-4">Material fornecido até agora</h1>
   </div>
   <table class="table">
@@ -61,7 +64,7 @@
     </tbody>
   </table>
 
-<a class="btn btn-primary" href="{{ route('listar_vendas') }}">Fechar venda</a>
+<a class="btn btn-warning" href="{{ route('listar_vendas') }}">Fechar venda</a>
 
   <script type="">
   	function exclui(id){

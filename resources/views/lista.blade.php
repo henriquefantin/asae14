@@ -31,7 +31,7 @@
 				<a class="btn btn-danger" href="#" onclick="exclui({{$u->id}})">Excluir</a>
 				</td>
 				<td>
-				<a class="btn btn-success" href="{{ route('vendas_item_novo', [ 'id' => $u->id ]) }}">Vender</a>	
+					<a class="btn btn-success" href="{{ route('listar_vendas_geral') }}">Vendas</a>
 				</td>
 			</tr>
 			@endForeach

@@ -60,7 +60,7 @@ class VendaController extends Controller
 
     function adicionarItem(Request $req, $id){
         $id_produto = $req->input('id_produto');
-        $id_produto = $req->input('quantidade');
+        $quantidade = $req->input('quantidade');
         $produto = Produto::find($id_produto);
         $venda = Venda::find($id);
         $subtotal = $produto->preco * $quantidade;
@@ -73,7 +73,7 @@ class VendaController extends Controller
         $venda->valor += $subtotal;
         $venda->save();
 
-        return redirect()->rout('vendas_item_novo', ['id' => $venda->id]);
+        return redirect()->route('vendas_item_novo', ['id' => $venda->id]);
     }
 
     function excluirItem($id, $idProduto){
