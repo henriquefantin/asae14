@@ -5,7 +5,7 @@
 		<h1 class="display-4">Cadastro Itens de Vendas #{{ $venda->id }}</h1>
 	</div>
 
-	<form method="post" action="{{ route('vendas_item_add', ['id' => $vendas->id])}}">
+	<form method="post" action="{{ route('vendas_item_add', ['id' => $venda->id])}}">
 		@csrf
 	 <div class="form-row">
 		<select name="id_produto" class="form-control">
@@ -38,7 +38,7 @@
       </tr>
     </thead>
     <tbody class="thead-light">
-      @foreach ($vendas->produtos as $p)
+      @foreach ($venda->produtos as $p)
       <tr>
         <td>{{ $p->pivot->id }}</td>
         <td>{{ $p->nome }}</td>
@@ -54,19 +54,19 @@
         <td></td>
         <td></td>
         <td><b>Total: </b></td>
-        <td><b>{{ $vendas->valor}}</b></td>
+        <td><b>{{ $venda->valor}}</b></td>
         <td></td>
         <td></td>
       </tr>
     </tbody>
   </table>
 
-<a href="#" class="btn btn-alert">Fechar Venda</a>
+<a class="btn btn-primary" href="{{ route('listar_vendas') }}">Fechar venda</a>
 
   <script type="">
   	function exclui(id){
 		if (confirm("Deseja excluir o item de id: " + id + "?")){
-			location.href = "/venda/{{ $vendas->id }}/itens/remover/" + id;
+			location.href = "/venda/{{ $venda->id }}/itens/remover/" + id;
 		}
 	}
   </script>

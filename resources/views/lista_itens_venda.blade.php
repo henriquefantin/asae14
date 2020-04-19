@@ -2,7 +2,7 @@
 
 @section('conteudo')
 	<div class="jumbotron bg-dark text-white">
-    <h1 class="display-4">Material fornecido na venda Nº {{ $vendas->id }}</h1>
+    <h1 class="display-4">Material fornecido na venda Nº {{ $venda->id }}</h1>
   </div>
   <table class="table">
     <thead class="thead-dark">
@@ -17,7 +17,7 @@
       </tr>
     </thead>
     <tbody class="thead-light">
-      @foreach ($vendas->produtos as $p)
+      @foreach ($venda->produtos as $p)
       <tr>
         <td>{{ $p->pivot->id }}</td>
         <td>{{ $p->nome }}</td>

@@ -28,9 +28,9 @@ Route::get('/cliente/alterar/{id}', 'ClienteController@telaAlteracao')->name('cl
 /* Vendas */
 Route::get('/cliente/cadastro_vendas', 'VendaController@telaCadastroVendas')->name('venda_cadastro');
 Route::post('/cliente/adicionar_venda', 'VendaController@adicionar')->name('venda_add');
-Route::get('/cliente/listar_vendas/{id}', 'VendaController@listar')->name('listar_vendas');
-Route::get('/cliente/listar_vendas_geral', 'VendaController@listarG')->name('listar_vendas_geral');
-Route::get('/cliente/{id}/itens', 'VendaController@itensVenda')->name('vensdas_itens');
+Route::get('/cliente/listar_vendas', 'VendaController@listar')->name('listar_vendas');
+Route::get('/cliente/listar_vendas_geral', 'VendaController@listar')->name('listar_vendas_geral');
+Route::get('/cliente/{id}/itens', 'VendaController@itensVenda')->name('vendas_itens');
 Route::get('venda/{id}/itens/novo', 'VendaController@telaAdicionarItem')->name('vendas_item_novo');
 Route::post('venda/{id}/itens/adicionar', 'VendaController@telaAdicionarItem')->name('vendas_item_add');
 Route::get('/venda/{id}/itens/remover/{id_produto}', 'VendaController@excluirItem')->name('vendas_item_delete');

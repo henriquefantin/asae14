@@ -39,30 +39,23 @@ class VendaController extends Controller
         return redirect()->route('tela_login');
     }
 
-    function listar($id){
+    function listar(){
         if(session()->has("login")){
-    	$vendas = Venda::all();
-    	$usuarios = Usuario::find($id)->vendas;
-
-    	return view("lista_vendas", [ "vendas" => $usuarios ]);
+        	$vendas = Venda::all();
+            return view('lista_vendas_geral', [ 'venda' => $vendas ]);
         }
         return redirect()->route('tela_login');
     }
 
-    function listarG(){
-        $vendas = Venda::all();
-        return view('lista_vendas_geral', [ 'vendas' => $vendas ]);
-    }
-
     function itensVenda($id){
         $venda = Venda::find($id);
-        return view('lista_itens_venda', ['vendas' => $venda]);
+        return view('lista_itens_venda', ['venda' => $venda]);
     }
 
     function telaAdicionarItem($id){
         $venda = Venda::find($id);
         $produtos = Produto::all();
-        return view('tela_cadastro_itens', ['vendas' => $venda, 'produtos' => $produtos]);
+        return view('tela_cadastro_itens', ['venda' => $venda, 'produtos' => $produtos]);
     }
 
     function adicionarItem(Request $req, $id){
@@ -84,7 +77,7 @@ class VendaController extends Controller
     }
 
     function excluirItem($id, $idProduto){
-        $venda = Vneda::find($id);
+        $venda = Venda::find($id);
         $subtotal = 0;
         foreach ($venda->produtos as $vp) {
             if($vp->id == $idProduto){

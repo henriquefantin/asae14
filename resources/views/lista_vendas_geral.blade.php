@@ -15,13 +15,13 @@
       </tr>
     </thead>
     <tbody class="thead-light">
-      @foreach ($vendas as $v)
+      @foreach ($venda as $v)
       <tr>
         <td>{{ $v->id }}</td>
         <td>{{ $v->descricao }}</td>
         <td>{{ $v->valor}}</td>
         <td>{{ $v->created_at}}</td>
-        <td><a class="btn btn-success" href="{{route('vensdas_itens', ['id' => $v->id])}}">Itens</a></td>
+        <td><a class="btn btn-success" href="{{route('vendas_itens', ['id' => $v->id])}}">Itens</a></td>
       </tr>
       @endForeach
     </tbody>

@@ -13,7 +13,7 @@
       </tr>
     </thead>
     <tbody class="thead-light">
-      @foreach ($vendas as $v)
+      @foreach ($venda as $v)
       <tr>
         <td>{{ $v->id }}</td>
         <td>{{ $v->descricao }}</td>
