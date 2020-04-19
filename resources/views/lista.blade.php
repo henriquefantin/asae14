@@ -31,7 +31,7 @@
 				<a class="btn btn-danger" href="#" onclick="exclui({{$u->id}})">Excluir</a>
 				</td>
 				<td>
-				<a class="btn btn-success" href="{{ route('venda_cadastro', [ 'id' => $u->id ]) }}">Vender</a>				
+				<a class="btn btn-success" href="{{ route('vendas_item_novo', [ 'id' => $u->id ]) }}">Vender</a>				
 				<a class="btn btn-success" href="{{ route('listar_vendas', [ 'id' => $u->id ]) }}">Listar Vendas</a>
 				</td>
 			</tr>
@@ -40,7 +40,7 @@
 	</table>
 
 
-<a class="btn btn-primary" href="{{ route('cliente_cadastro') }}">Cadastrar novo</a>
+<a class="btn btn-success" href="{{ route('cliente_cadastro') }}">Cadastrar Cliente</a>
 
 <script>
 	function exclui(id){

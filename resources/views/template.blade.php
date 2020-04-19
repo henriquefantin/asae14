@@ -7,15 +7,25 @@
 </head>
 <body>
   <div class="row">
-      <nav class="navbar-expand-lg navbar navbar-dark bg-dark w-100">
-        <a class="navbar-brand" href="#">Olá, {{ session("nome")}}</a>
-        <div class="collapse navbar-collapse" id="navbarNav">
+    <nav class="navbar-expand-lg navbar navbar-dark bg-dark w-100">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <a class="navbar-brand" href="#">Olá, {{ session("nome")}}</a>
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav">
             <li class="nav-item active">
               <a class="nav-link" href="{{ route('cliente_cadastro') }}">Cadastro <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
               <a class="nav-link" href="{{ route('listar') }}">Clientes <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="{{ route('listar_vendas_geral') }}">Vendas <span class="sr-only">(current)</span></a>
+            </li>
+             <li class="nav-item active">
+              <a class="nav-link" href="#">Produtos <span class="sr-only">(current)</span></a>
             </li>
              <li class="nav-item active">
               <a class="nav-link" href="{{ route('logout') }}">Logout</a>
